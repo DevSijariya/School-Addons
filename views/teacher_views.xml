@@ -1,0 +1,46 @@
+<odoo>
+    <data>
+        <record id='teacher_information_list_view' model="ir.ui.view" >
+            <field name="name">teacher.information.list.view</field>
+            <field name="model">teacher.information</field>
+            <field name="arch" type="xml">
+                <list>
+                    <field name= "name"></field>
+                    <field name= "age"></field>
+                    <field name= "date_of_birth"></field>
+                    <field name= "subject"></field>
+                    <field name= "salary"></field>
+                </list>
+            </field>
+        </record>
+        <record id='teacher_information_form_view' model="ir.ui.view" >
+            <field name="name">teacher.information.list.view</field>
+            <field name="model">teacher.information</field>
+            <field name="arch" type="xml">
+                <form>
+                    <strong>Name : <field name= "name"></field></strong>
+                    <strong>Age : <field name= "age"></field></strong>
+                    <strong>DOB : <field name= "date_of_birth"></field></strong>
+                    <strong>Subject : <field name= "subject"></field></strong>
+                    <strong>Salary : <field name= "salary"></field></strong>
+                </form>
+            </field>
+        </record>
+        <record id="teacher_information_graph_view" model='ir.ui.view'>
+            <field name="name">teacher.information.graph.view</field>
+            <field name="model">teacher.information</field>
+            <field name="arch" type="xml">
+                <graph string="Data" sample="1">
+                    <field name="name"></field>
+                    <field name="salary"></field>
+                </graph>
+            </field>
+        </record>
+        <record id ="teacher_data" model="ir.actions.act_window">
+            <field name="name">Teacher Detail</field>
+            <field name="res_model">teacher.information</field>
+            <field name="view_mode">list,form,graph</field>
+        </record>    
+    </data>
+    <menuitem id='teacher_info' name="Teacher data" action="teacher_data" parent="school_details" sequence="30"/>
+</odoo> 
